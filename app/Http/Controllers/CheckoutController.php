@@ -86,6 +86,7 @@ class CheckoutController extends Controller
             );
             $packageAdd = Checkout::create($package);
         }
+        //faizan
         return redirect()->route('front-end.home');
 
     }
