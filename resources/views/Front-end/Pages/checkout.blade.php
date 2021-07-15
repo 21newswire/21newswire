@@ -1,4 +1,4 @@
-@extends('front-end.layout')
+@extends('Front-end.layout')
 @section('title', '21NewsWire - Contact us')
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

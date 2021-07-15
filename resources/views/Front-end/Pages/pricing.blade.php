@@ -1,4 +1,4 @@
-@extends('front-end.layout')
+@extends('Front-end.layout')
 @section('title', '21NewsWire - Pricing')
 @section('content')
 <script>document.getElementsByTagName("html")[0].className += " js";</script>

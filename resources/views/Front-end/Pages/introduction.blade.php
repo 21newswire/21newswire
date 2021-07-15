@@ -1,4 +1,4 @@
-@extends('front-end.layout')
+@extends('Front-end.layout')
 @section('title', '21NewsWire')
 @section('content')
     <section id="about" class="about section-bg">
