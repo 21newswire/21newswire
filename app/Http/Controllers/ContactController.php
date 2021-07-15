@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\contact;
+use App\Models\Contact;
 use Request;
 use Session;
 use Redirect;
@@ -54,7 +54,7 @@ class ContactController extends Controller
                 ->withErrors($validator);
         } else {
             // store
-            $contact = new contact;
+            $contact = new Contact;
             $contact->name       = Request::get('name');
             $contact->email       = Request::get('email');
             $contact->subject       = Request::get('subject');
@@ -72,7 +72,7 @@ class ContactController extends Controller
      * @param  \App\Models\contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(contact $contact)
+    public function show(Contact $contact)
     {
         //
     }
@@ -83,7 +83,7 @@ class ContactController extends Controller
      * @param  \App\Models\contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(contact $contact)
+    public function edit(Contact $contact)
     {
         //
     }
@@ -95,7 +95,7 @@ class ContactController extends Controller
      * @param  \App\Models\contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, contact $contact)
+    public function update(Request $request, Contact $contact)
     {
         //
     }
@@ -106,7 +106,7 @@ class ContactController extends Controller
      * @param  \App\Models\contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(contact $contact)
+    public function destroy(Contact $contact)
     {
         
     }
