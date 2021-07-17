@@ -11,14 +11,4 @@ function generateRandomString()  {
     }
     return $randomString;
 }
-function getSessionCart(){
-    $cart = session()->get('product-cart');
-    if(empty($cart)){
-        return 'empty';
-    }
-    else
-    {
-        return $cart;
-    }
-}
 ?>

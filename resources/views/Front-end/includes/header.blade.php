@@ -69,7 +69,10 @@
               </li>
               @endguest
               <?php
-               $cart =  getSessionCart();
+              $cart = session()->get('product-cart');
+              if(empty($cart)){
+                $cart =  'empty';
+              }
               ?>
                 @if($cart !== 'empty')
                 <li><a class="nav-link scrollto" href="#" onclick="openCart(true)">Cart</a></li>
