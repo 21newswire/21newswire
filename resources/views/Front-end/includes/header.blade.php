@@ -67,11 +67,33 @@
                   </li>
                 </ul>
               </li>
+              <?php
+               $cart =  getSessionCart()
+              ?>
+              <li><a class="nav-link scrollto {{Request::url() === route('front-end.home') ? 'active' : ''}}" href="{{route('front-end.home')}}">Home</a></li>
+
               
               @endguest
+              <?php
+               $cart =  getSessionCart();
+              ?>
+                @if($cart !== 'empty')
+                <li><a class="nav-link scrollto" href="#" onclick="openCart(true)">Cart</a></li>
+                @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header>
+  <script>
+function openCart(bool)
+{
+  var cart = document.getElementsByClassName('js-cd-cart');
+  var cartIsOpen = ( typeof bool === false ) ? Util.hasClass(cart[0], 'cd-cart--open') : bool;
+    if( cartIsOpen ) {
+      Util.removeClass(cart[0], 'cd-cart--empty');
+
+      } 
+}
+  </script>
