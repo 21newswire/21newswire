@@ -9,7 +9,7 @@
         <ul>
           <li><a class="nav-link scrollto {{Request::url() === route('front-end.home') ? 'active' : ''}}" href="{{route('front-end.home')}}">Home</a></li>
           <li><a class="nav-link scrollto {{Request::url() === route('front-end.introduction') ? 'active' : ''}}" href="{{route('front-end.introduction')}}">Introduction</a></li>
-          <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#" class="{{ request()->is('product/*') ? 'active' : '' }}"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li class="dropdown"><a href="#"><span>Generic PR</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
@@ -68,15 +68,18 @@
                 </ul>
               </li>
               @endguest
+              
               <?php
               $cart = session()->get('product-cart');
               if(empty($cart)){
                 $cart =  'empty';
               }
               ?>
+              @if(request()->is('product/*'))
                 @if($cart !== 'empty')
                 <li><a class="nav-link scrollto" href="#" onclick="openCart(true)">Cart</a></li>
                 @endif
+              @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
