@@ -67,12 +67,6 @@
                   </li>
                 </ul>
               </li>
-              <?php
-               $cart =  getSessionCart()
-              ?>
-              <li><a class="nav-link scrollto {{Request::url() === route('front-end.home') ? 'active' : ''}}" href="{{route('front-end.home')}}">Home</a></li>
-
-              
               @endguest
               <?php
                $cart =  getSessionCart();
