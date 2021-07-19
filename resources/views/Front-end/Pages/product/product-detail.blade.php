@@ -178,8 +178,8 @@
     <div class="cd-cart cd-cart--empty js-cd-cart">
 	<a href="#0" class="cd-cart__trigger text-replace">
 		<ul class="cd-cart__count"> <!-- cart items count -->
-			<li>{{count($cart)}}</li>
-			<li>{{count($cart)}}</li>
+			<li>{{isset($cart)? count($cart) : 0}}</li>
+			<li>{{isset($cart)? count($cart) : 0}}</li>
 		</ul> <!-- .cd-cart__count -->
 	</a>
 
