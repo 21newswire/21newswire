@@ -94,7 +94,7 @@ class CheckoutController extends Controller
     {
         $package = Request::get('package');
         $price = Request::get('price');
-
+        $addToCartArray = array();
         $uniqueId = generateRandomString();
         if(!empty($cart)) {
             $cartKeyValues = array_keys($cart);
@@ -117,12 +117,17 @@ class CheckoutController extends Controller
             $sessionCart[$uniqueId] = $cart[$uniqueId];
             session()->put('product-cart', $sessionCart);
         }
-        return $uniqueId;
+        $finalSession = session()->get('product-cart');
+        $sessionCount = count($finalSession);
+        $addToCartArray[0]=$uniqueId;
+        $addToCartArray[1]=$sessionCount;
+        return $addToCartArray;
     }
     public function removeFromCart()
     {
         // session()->forget('product-cart');
         $product_id = Request::get('product_id');
+        $addToCartArray = array();
 
         foreach (Session::get('product-cart') as $key => $value) 
         {
@@ -134,6 +139,9 @@ class CheckoutController extends Controller
         }
         
         $sessionCart = session()->get('product-cart');
-        return $sessionCart;
+        $sessionCount = count($sessionCart);
+        $addToCartArray[0]=$sessionCart;
+        $addToCartArray[1]=$sessionCount;
+        return $addToCartArray;
     }
 }

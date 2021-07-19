@@ -77,7 +77,7 @@
               ?>
               @if(request()->is('product/*'))
                 @if($cart !== 'empty')
-                <li><a class="nav-link scrollto" href="#" onclick="openCart(true)">Cart</a></li>
+                <li><a class="nav-link scrollto" href="#" onclick="openCart(true)"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a> <span id="CartCount" style="font-size: 12px; float: right; margin-top: -28px; font-weight: 900;">{{count($cart)}}</span></li>
                 @endif
               @endif
         </ul>

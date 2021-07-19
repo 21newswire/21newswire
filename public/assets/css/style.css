@@ -357,9 +357,10 @@ a.cd-add-to-cart.js-cd-add-to-cart:hover {
 }
 
 .navbar a i, .navbar a:focus i {
-  font-size: 12px;
+  font-size: 20px;
   line-height: 0;
-  margin-left: 5px;
+  margin-left: 0px;
+  margin-bottom: 5px;
 }
 
 .navbar > ul > li > a:before {

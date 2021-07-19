@@ -15,8 +15,8 @@
 
         <div class="row">
 
-        <div class="main">
-    <table class="price-table">
+        <div class="main table-responsive">
+    <table class="price-table table table-responsive">
         <tbody>
             <tr class="price-table-head">
                 <td>
@@ -178,8 +178,8 @@
     <div class="cd-cart cd-cart--empty js-cd-cart">
 	<a href="#0" class="cd-cart__trigger text-replace">
 		<ul class="cd-cart__count"> <!-- cart items count -->
-			<li>0</li>
-			<li>0</li>
+			<li>{{count($cart)}}</li>
+			<li>{{count($cart)}}</li>
 		</ul> <!-- .cd-cart__count -->
 	</a>
 
@@ -382,8 +382,9 @@
                       console.log(response);
                       var cart_data = '<input type="hidden" name="cart['+product_name+']" value="'+product_name+'_'+price+'">';
                       document.getElementById("cd-cart-data").innerHTML += cart_data;
-                      var productAdded = '<li class="cd-cart__product" id="'+response+'"><div class="cd-cart__details"><h3 class="truncate"><a href="#0">'+product_name+'</a></h3><span class="cd-cart__price">'+price+'</span><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select><svg class="icon" viewBox="0 0 12 12"><polyline fill="none" stroke="currentColor" points="2,4 6,8 10,4 "/></svg></span></div></div></div></li>';
+                      var productAdded = '<li class="cd-cart__product" id="'+response[0]+'"><div class="cd-cart__details"><h3 class="truncate"><a href="#0">'+product_name+'</a></h3><span class="cd-cart__price">'+price+'</span><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select><svg class="icon" viewBox="0 0 12 12"><polyline fill="none" stroke="currentColor" points="2,4 6,8 10,4 "/></svg></span></div></div></div></li>';
                       cartList.insertAdjacentHTML('beforeend', productAdded);
+                      $('#CartCount').text(response[1]);
                   },
               });
               
@@ -421,6 +422,8 @@
                       _token: "{{ csrf_token() }}",
                   },
                   success:function(response){
+                    $('#CartCount').text(response[1]);
+
                   },
               });
           };
